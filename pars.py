@@ -1,6 +1,10 @@
 from bs4 import BeautifulSoup
 
 
+def pars_cambridge_page():
+    pass
+
+
 def pars_text(html_text):
     html_obj = BeautifulSoup(html_text, 'html.parser')
     title = html_obj.select('#link-7726e0d0 > span:nth-child(1)')[0].text
