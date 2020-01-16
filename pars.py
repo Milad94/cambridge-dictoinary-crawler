@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from decorators import none_if_exception
+from decorators import none_if_exception, exception_logger
 
 
 @none_if_exception
@@ -35,6 +35,7 @@ def find_phrase_examples(phrase_block):
     return [example.text for example in phrase_examples]
 
 
+@exception_logger
 def pars_word_page(html_text):
     result = list()
     html_obj = BeautifulSoup(html_text, 'html.parser')
@@ -57,6 +58,7 @@ def pars_word_page(html_text):
     return result
 
 
+@exception_logger
 def pars_text(html_text):
     html_obj = BeautifulSoup(html_text, 'html.parser')
     title = html_obj.select('#link-7726e0d0 > span:nth-child(1)')[0].text
